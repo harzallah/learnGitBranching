@@ -47,7 +47,17 @@ exports.levelSequences = {
     require('./remote/fetchArgs').level,
     require('./remote/sourceNothing').level,
     require('./remote/pullArgs').level
-  ]
+  ],
+  flow: [
+    require('./flow/feature1').level,
+    require('./flow/release1').level,
+    require('./flow/hotfix1').level,
+    require('./flow/recap').level
+  ],
+  flowRemote: [
+    require('./flowremote/remote1').level,
+    require('./flowremote/remote3').level
+  ],
 };
 
 // there are also cute names and such for sequences
@@ -248,6 +258,24 @@ var sequenceInfo = exports.sequenceInfo = {
       'ru_RU': 'Если ты смелый, ловкий, умелый – потренируйся тут',
       'uk'   : 'Для хоробрих',
       'ko'   : '용기있는 도전자를 위해 준비한 문제입니다'
+    }
+  },
+  flow: {
+    tab: 'flow',
+    displayName: {
+      'en_US': 'Flow intro',
+    },
+    about: {
+      'en_US': 'Flow intro !',
+    }
+  },
+  flowRemote: {
+    tab: 'flow',
+    displayName: {
+      'en_US': 'Flow remote',
+    },
+    about: {
+      'en_US': 'Flow remote !',
     }
   }
 };

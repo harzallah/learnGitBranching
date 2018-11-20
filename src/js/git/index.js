@@ -657,8 +657,8 @@ GitEngine.prototype.validateBranchName = function(name) {
       )
     });
   }
-  if (name.length > 9) {
-    name = name.slice(0, 9);
+  if (name.length > 12) {
+    name = name.slice(0, 12);
     this.command.addWarning(
       intl.str(
         'branch-name-short',
@@ -2687,6 +2687,12 @@ GitEngine.prototype.dispatchProcess = function(command, deferred) {
 
   try {
     Commands.commands.execute(vcs, methodName, this, this.command);
+
+    var tree = this.exportTree();
+    TreeCompare.reduceTreeFields([tree]);
+    var str = JSON.stringify(tree);
+    console.log(str);
+    
   } catch (err) {
     this.filterError(err);
     // short circuit animation by just setting error and returning

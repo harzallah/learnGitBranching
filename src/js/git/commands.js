@@ -677,10 +677,15 @@ var commandConfig = {
       if (commandOptions['-b']) {
         // the user is really trying to just make a
         // branch and then switch to it. so first:
+        console.log(generalArgs);
         args = commandOptions['-b'].concat(generalArgs);
+        console.log(args);
         command.twoArgsImpliedHead(args, '-b');
+        console.log(args);
 
         var validId = engine.validateBranchName(args[0]);
+        console.log(validId);
+        console.log(args);
         engine.branch(validId, args[1]);
         engine.checkout(validId);
         return;
@@ -821,7 +826,163 @@ var commandConfig = {
       command.twoArgsImpliedHead(generalArgs);
       engine.tag(generalArgs[0], generalArgs[1]);
     }
-  }
+  },
+
+  flowinit: {
+    regex: /^git +flow +init(\s)/,
+    execute: function(engine, command) {
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'feat/'+shortId;
+      engine.branch(validId, 'develop');
+      engine.checkout(validId);
+    }
+  },
+  
+  flowfeaturestart: {
+    regex: /^git +flow +feature +start(\s)/,
+    execute: function(engine, command) {
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'feat/'+shortId;
+      engine.branch(validId, 'develop');
+      engine.checkout(validId);
+    }
+  },
+
+  flowfeaturepublish: {
+    regex: /^git +flow +feature +publish(\s)/,
+    execute: function(engine, command) {
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'feat/'+shortId;
+      engine.checkout(validId);
+
+      var sourceObj = engine.getOneBeforeCommit('HEAD');
+      var source = sourceObj.get('id');
+      var destination = validateBranchName(engine, source);
+      assertIsRef(engine, source);
+
+      engine.push({
+        destination: destination,
+        source: source
+      });
+    }
+  },
+
+  flowfeaturefinish: {
+    regex: /^git +flow +feature +finish(\s)/,
+    execute: function(engine, command) {
+      // no parsing at all
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'feat/'+shortId;
+      engine.checkout('develop');
+      console.log('merge');
+      try{
+        var newCommit = engine.merge(validId,{ noFF: true });
+        engine.animationFactory.genCommitBirthAnimation(
+          engine.animationQueue, newCommit, engine.gitVisuals
+        );
+        console.log(newCommit);
+      }catch(e){
+        if (e.getMsg() !== "Branch already up-to-date"){
+          throw e;
+        }
+      
+      }
+      
+      engine.validateAndDeleteBranch(validId);
+    }
+  },
+
+  flowhotfixstart: {
+    regex: /^git +flow +hotfix +start(\s)/,
+    execute: function(engine, command) {
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'fix/'+shortId;
+      engine.branch(validId, 'master');
+      engine.checkout(validId);
+    }
+  },
+
+  flowhotfixfinish: {
+    regex: /^git +flow +hotfix +finish(\s)/,
+    execute: function(engine, command) {
+      // no parsing at all
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'fix/'+shortId;
+      engine.checkout('master');
+      
+      var masterCommit = engine.merge(validId,{ noFF: true });
+
+      engine.animationFactory.genCommitBirthAnimation(
+        engine.animationQueue, masterCommit, engine.gitVisuals
+      );
+      
+      engine.tag(shortId, 'master');
+
+      engine.checkout('develop');
+      try{
+        var developCommit = engine.merge(validId,{ noFF: true });
+        engine.animationFactory.genCommitBirthAnimation(
+          engine.animationQueue, developCommit, engine.gitVisuals
+        );
+      }catch(e){
+        if (e.getMsg() !== "Branch already up-to-date"){
+          throw e;
+        }
+      }
+
+      engine.validateAndDeleteBranch(validId);
+    }
+  },
+
+  flowreleasestart: {
+    regex: /^git +flow +release +start(\s)/,
+    execute: function(engine, command) {
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'real/'+shortId;
+      engine.branch(validId, 'develop');
+      engine.checkout(validId);
+    }
+  },
+
+  flowreleasefinish: {
+    regex: /^git +flow +release +finish(\s)/,
+    execute: function(engine, command) {
+      // no parsing at all
+      var generalArgs = command.getGeneralArgs();
+      var shortId = engine.validateBranchName(generalArgs[2]);
+      var validId = 'real/'+shortId;
+      engine.checkout('master');
+      
+      var masterCommit = engine.merge(validId,{ noFF: true });
+
+      engine.animationFactory.genCommitBirthAnimation(
+        engine.animationQueue, masterCommit, engine.gitVisuals
+      );
+      
+      engine.tag(shortId, 'master');
+
+      engine.checkout('develop');
+      try{
+        var developCommit = engine.merge(validId,{ noFF: true });
+        engine.animationFactory.genCommitBirthAnimation(
+          engine.animationQueue, developCommit, engine.gitVisuals
+        );
+      }catch(e){
+        if (e.getMsg() !== "Branch already up-to-date"){
+          throw e;
+        }
+      }
+
+      engine.validateAndDeleteBranch(validId);
+    }
+  },
 };
 
 var instantCommands = [
