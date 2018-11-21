@@ -280,6 +280,15 @@ var sequenceInfo = exports.sequenceInfo = {
   }
 };
 
+var langs = ['zh_CN', 'fr_FR', 'de_DE', 'ja', 'es_AR', 'pt_BR', 'zh_TW', 'ru_RU', 'ko', 'uk'];
+
+langs.map( function(lang){
+  exports.sequenceInfo.flow.displayName[lang] = exports.sequenceInfo.flow.displayName.en_US;
+  exports.sequenceInfo.flow.about[lang] = exports.sequenceInfo.flow.about.en_US;
+  exports.sequenceInfo.flowRemote.displayName[lang] = exports.sequenceInfo.flowRemote.displayName.en_US;
+  exports.sequenceInfo.flowRemote.about[lang] = exports.sequenceInfo.flowRemote.about.en_US;
+});
+
 exports.getTabForSequence = function(sequenceName) {
   var info = sequenceInfo[sequenceName];
   return (info.tab) ?

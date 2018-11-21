@@ -31,3 +31,11 @@ exports.level = {
     },
   }
 };
+
+var langs = ['zh_CN', 'fr_FR', 'de_DE', 'ja', 'es_AR', 'pt_BR', 'zh_TW', 'ru_RU', 'ko', 'uk'];
+
+langs.map( function(lang){
+  exports.level.name[lang] = exports.level.name.en_US;
+  exports.level.hint[lang] = exports.level.hint.en_US;
+  exports.level.startDialog[lang] = exports.level.startDialog.en_US;
+});

@@ -246,7 +246,7 @@ var initDemo = function(sandbox) {
     });
   } else if (!params.hasOwnProperty('NODEMO')) {
     commands = [
-      "help;",
+      // "help;",
       "levels"
     ];
   }

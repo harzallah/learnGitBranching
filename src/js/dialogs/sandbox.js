@@ -18,7 +18,7 @@ exports.dialog = {
         '',
         'PS: Want to go straight to a sandbox next time?',
         'Try out ',
-        '[this special link](https://pcottle.github.io/learnGitBranching/?NODEMO)'
+        '[this special link](?NODEMO)'
       ]
     }
   }],
@@ -37,11 +37,11 @@ exports.dialog = {
         '',
         'Si no viste la demo, mirala en esta dirección:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '[?demo](?demo)',
         '',
         '¿Harto de este mensaje? Agregale `?NODEMO` a la URL para dejar de verlo, como en este link:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?NODEMO](?NODEMO)'
+        '[?NODEMO](?NODEMO)'
       ]
     }
   }, {
@@ -93,11 +93,11 @@ exports.dialog = {
         '',
         'Se você ainda não viu o demo, veja aqui:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '[?demo](?demo)',
         '',
         'Farto desta mensagem? Acrescente `?NODEMO` ao endereço para se livrar dela, como no link abaixo:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?NODEMO](?NODEMO)'
+        '[?NODEMO](?NODEMO)'
       ]
     }
   }, {
@@ -146,11 +146,11 @@ exports.dialog = {
         '',
         'Falls du die Demonstration noch nicht gesehen hast, schau sie dir hier an:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '[?demo](?demo)',
         '',
         'Genervt von diesem Fenster? Häng `?NODEMO` an die URL um es los zu werden, so wie hier:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?NODEMO](?NODEMO)'
+        '[?NODEMO](?NODEMO)'
       ]
     }
   }, {
@@ -202,11 +202,11 @@ exports.dialog = {
         '',
         '簡単なデモを用意してあるので、もしよければこちらもご覧ください：',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo&locale=ja)',
+        '[?demo](?demo&locale=ja)',
         '',
         'このダイアログ自体を省略するには、以下のようにURLの末尾にクエリストリング`?NODEMO`を付加してアクセスしてください。',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?NODEMO](https://pcottle.github.io/learnGitBranching/?NODEMO&locale=ja)'
+        '[?NODEMO](?NODEMO&locale=ja)'
       ]
     }
   }, {
@@ -281,11 +281,11 @@ exports.dialog = {
         '',
         '如果你還沒看過演示，請到此查看：',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '[?demo](?demo)',
         '',
         '厭煩這個對話視窗嗎？在 URL 後頭加上 `?NODEMO` 就看不到它了，也可以直接點下邊這個連結：',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?NODEMO](https://pcottle.github.io/learnGitBranching/?NODEMO)'
+        '[?NODEMO](?NODEMO)'
       ]
     }
   }, {
@@ -330,10 +330,10 @@ exports.dialog = {
         '탄탄히 잡게끔 도와드리기 위해 만들었습니다. 재밌게 사용해주시기를',
         '바라며, 무언가를 배워가신다면 더 기쁘겠습니다!',
         '',
-        '이 애플리케이션은 [Peter Cottle](https://github.io/pcottle)님의 [LearnGitBranching](https://pcottle.github.io/learnGitBranching/)를 번역한 것입니다.',
+        '이 애플리케이션은 [Peter Cottle](https://github.io/pcottle)님의 [LearnGitBranching]()를 번역한 것입니다.',
         '아래 데모를 먼저 보셔도 좋습니다.',
         '',
-        '<https://pcottle.github.io/learnGitBranching/?demo&locale=ko>'
+        '<?demo&locale=ko>'
       ]
     }
   }, {
@@ -383,11 +383,11 @@ exports.dialog = {
         '',
         'Si vous n\'avez pas vu la démo, vous pouvez le faire là :',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '[?demo](?demo)',
         '',
         'Agacé par ce dialogue ? Ajoutez `?NODEMO` à l\'URL pour le supprimer, en lien ci-dessous pour votre commodité :',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?NODEMO](?NODEMO)'
+        '[?NODEMO](?NODEMO)'
       ]
     }
   }, {
@@ -439,11 +439,11 @@ exports.dialog = {
         '',
         'Если ты не видел демонстрацию – посмотри её тут:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '[?demo](?demo)',
         '',
         'Достало это сообщение? Добавь `?NODEMO` к адресу и навсегда забудь о нём, ниже ссылка для удобства:',
         '',
-        '[https://pcottle.github.io/learnGitBranching/?NODEMO](?NODEMO)'
+        '[?NODEMO](?NODEMO)'
       ]
     }
   }, {
@@ -498,7 +498,7 @@ exports.dialog = {
         '',
         'P.S. Хочеш перейти одразу до пісочниці наступного разу?',
         'Спробуй ',
-        '[це спеціальне посилання.](https://pcottle.github.io/learnGitBranching/?NODEMO)'
+        '[це спеціальне посилання.](?NODEMO)'
       ]
     }
   }]

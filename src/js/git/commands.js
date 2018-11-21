@@ -828,18 +828,14 @@ var commandConfig = {
     }
   },
 
-  flowinit: {
-    regex: /^git +flow +init(\s)/,
+  "flow init": {
+    regex: /^git +flow +init/,
     execute: function(engine, command) {
-      var generalArgs = command.getGeneralArgs();
-      var shortId = engine.validateBranchName(generalArgs[2]);
-      var validId = 'feat/'+shortId;
-      engine.branch(validId, 'develop');
-      engine.checkout(validId);
+      engine.branch('develop', 'HEAD');
     }
   },
   
-  flowfeaturestart: {
+  "flow feature start": {
     regex: /^git +flow +feature +start(\s)/,
     execute: function(engine, command) {
       var generalArgs = command.getGeneralArgs();
@@ -850,7 +846,7 @@ var commandConfig = {
     }
   },
 
-  flowfeaturepublish: {
+  "flow feature publish": {
     regex: /^git +flow +feature +publish(\s)/,
     execute: function(engine, command) {
       var generalArgs = command.getGeneralArgs();
@@ -870,7 +866,7 @@ var commandConfig = {
     }
   },
 
-  flowfeaturefinish: {
+  "flow feature finish": {
     regex: /^git +flow +feature +finish(\s)/,
     execute: function(engine, command) {
       // no parsing at all
@@ -896,7 +892,7 @@ var commandConfig = {
     }
   },
 
-  flowhotfixstart: {
+  "flow hotfix start": {
     regex: /^git +flow +hotfix +start(\s)/,
     execute: function(engine, command) {
       var generalArgs = command.getGeneralArgs();
@@ -907,7 +903,7 @@ var commandConfig = {
     }
   },
 
-  flowhotfixfinish: {
+  "flow hotfix finish": {
     regex: /^git +flow +hotfix +finish(\s)/,
     execute: function(engine, command) {
       // no parsing at all
@@ -940,7 +936,7 @@ var commandConfig = {
     }
   },
 
-  flowreleasestart: {
+  "flow release start": {
     regex: /^git +flow +release +start(\s)/,
     execute: function(engine, command) {
       var generalArgs = command.getGeneralArgs();
@@ -951,7 +947,7 @@ var commandConfig = {
     }
   },
 
-  flowreleasefinish: {
+  "flow release finish": {
     regex: /^git +flow +release +finish(\s)/,
     execute: function(engine, command) {
       // no parsing at all
