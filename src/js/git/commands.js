@@ -882,7 +882,7 @@ var commandConfig = {
         );
         console.log(newCommit);
       }catch(e){
-        if (e.getMsg() !== "Branch already up-to-date"){
+        if (e.getMsg() !== intl.str('git-result-uptodate') ){
           throw e;
         }
       
@@ -927,7 +927,7 @@ var commandConfig = {
           engine.animationQueue, developCommit, engine.gitVisuals
         );
       }catch(e){
-        if (e.getMsg() !== "Branch already up-to-date"){
+        if (e.getMsg() !== intl.str('git-result-uptodate') ){
           throw e;
         }
       }
@@ -971,7 +971,7 @@ var commandConfig = {
           engine.animationQueue, developCommit, engine.gitVisuals
         );
       }catch(e){
-        if (e.getMsg() !== "Branch already up-to-date"){
+        if (e.getMsg() !== intl.str('git-result-uptodate') ){
           throw e;
         }
       }
